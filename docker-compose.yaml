@@ -46,7 +46,7 @@ services:
       - "8080:8080" #Exposes adminer on port 8080
     restart: always
     environment:
-      - ADMINER_DEFAULT_SERVER: db
+      - ADMINER_DEFAULT_SERVER:db
     networks:
       - backend-network
 
@@ -57,7 +57,7 @@ services:
     - '443:443'
     - '8090:81'
     environment:
-      - DB_SQLITE_FILE: "data/database.sqlite"
+      - DB_SQLITE_FILE:"data/database.sqlite"
     volumes:
       - data:/data
       - letsencrypt:/etc/letsencrypt
@@ -71,14 +71,14 @@ services:
     networks:
       - frontend-network
       - backend-network
-  networks:
-    frontend-network:
-    backend-network:
-  volumes:
-    postgres_data:
-    data:
-    letsencrypt:
-  secrets:
-    postgres_password:
-      file: ./POSTGRES_PASSWORD.txt
+networks:
+  frontend-network:
+  backend-network:
+volumes:
+  postgres_data:
+  data:
+  letsencrypt:
+secrets:
+  postgres_password:
+    file: ./POSTGRES_PASSWORD.txt
 

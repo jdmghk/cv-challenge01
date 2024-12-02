@@ -23,7 +23,7 @@ services:
       - GF_SERVER_ROOT_URL=http://localhost:3000/grafana
       - GF_SERVER_SERVE_FROM_SUB_PATH=true
     volumes:
-      - grafana: /var/lib/grafana
+      - grafana:/var/lib/grafana
     networks:
     - frontend-network
     depends_on:
