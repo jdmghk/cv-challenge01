@@ -6,7 +6,7 @@ services:
     build:
       context: ./frontend
     env_file:
-      - frontend/ .env
+      - frontend/.env
     depends_on:
       - backend
     ports: 
